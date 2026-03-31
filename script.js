@@ -56,6 +56,13 @@ function minesweeperGame() {
     }
   }
 
+  function bombLogic() {
+    allCells.forEach((cell) => {
+      if (cell.cellParams.isBomb) {
+      }
+    });
+  }
+
   createGrid(width);
 }
 
