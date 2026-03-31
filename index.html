@@ -3,10 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <style>
+      .grid-container {
+        display: grid;
+        gap: 2px;
+        width: fit-content;
+      }
+      .block {
+        width: 30px;
+        height: 30px;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        user-select: none;
+      }
+    </style>
   </head>
   <body>
-    <button></button>
+    <div class="grid-container"></div>
     <script src="script.js"></script>
   </body>
 </html>

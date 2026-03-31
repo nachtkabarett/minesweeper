@@ -1,8 +1,8 @@
 // minesweeper
 
-// generate a grid
+// define cells
 
-const blocks = {
+const cells = {
   undiscovered: "⬜️",
   discovered: "🔳",
   oneBomb: "1️⃣",
@@ -21,9 +21,42 @@ const blocks = {
   flag: "🚩",
 };
 
-function createGrid(width) {
-  const presetBlock = document.createElement("button");
-  const gridContainer = document.createElement("div");
+// define states of a cell
 
-  presetBlock.classList.add("block");
+const cell = {
+  isBomb: false,
+  isFlagged: false,
+  isNumber: false,
+  neighborCount: 0,
+  isUnrevealed: true,
+};
+
+// game itself
+
+function minesweeperGame() {
+  const width = Number(window.prompt("enter the width of the grid"));
+  const allCells = [];
+
+  function createGrid(width) {
+    const container = document.querySelector(".grid-container");
+    container.style.gridTemplateColumns = `repeat(${width}, 30px)`;
+
+    const totalCells = width * width;
+
+    for (let i = 0; i < totalCells; i++) {
+      const presetCell = document.createElement("button");
+      presetCell.classList.add("block");
+      presetCell.cellParams = { ...cell };
+      allCells.push(presetCell);
+      container.append(presetCell);
+
+      if (presetCell.cellParams.isUnrevealed === true) {
+        presetCell.textContent = cells.undiscovered;
+      }
+    }
+  }
+
+  createGrid(width);
 }
+
+document.addEventListener("DOMContentLoaded", minesweeperGame);
