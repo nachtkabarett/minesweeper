@@ -1,6 +1,0 @@
-// board logic
-
-function boardGen(){
-  
-
-}
